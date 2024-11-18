@@ -15,12 +15,6 @@ public class InfoPoint : MonoBehaviour
         txt = transform.Find("Text").GetComponent<Text>();
         StartCoroutine(Waiter(3));
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     IEnumerator Waiter(int sec){
         logo.gameObject.SetActive(true);
         txt.gameObject.SetActive(true);

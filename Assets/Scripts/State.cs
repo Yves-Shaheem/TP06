@@ -211,6 +211,7 @@ public class Attack : State {
         : base(_npc, _agent, _anim, _player) {
         name = STATE.ATTACK;
         shoot = _npc.GetComponent<AudioSource>();
+        
     }
  
     public override void Enter() {
@@ -231,6 +232,9 @@ public class Attack : State {
             nextState = new Idle(npc, agent, anim, player);
             shoot.Stop();
             stage = EVENT.EXIT;
+        }
+        if(anim.GetBool("isShooting")){
+            GameObject.Find("ClairePlayer").GetComponent<BarManager>().TakeDamage(1f);
         }
     }
  
